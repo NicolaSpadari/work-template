@@ -1,6 +1,6 @@
 # `Work project static site generator`
 
-##CDN use - for static site development and preview - not intended for production
+## CDN use - for static site development and preview - not intended for production
 
 
 This template includes:
