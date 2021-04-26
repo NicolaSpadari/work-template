@@ -159,10 +159,9 @@ module.exports = {
         // accessibility: false,
     },
     theme: {
-        // Extend
         fontFamily: {
-            text: `Barlow,${clayFonts}`,
-            heading: `Montserrat,${clayFonts}`,
+            text: `Font1,${clayFonts}`,
+            heading: `Font2,${clayFonts}`,
         },
         colors: {
             transparent: "transparent",
