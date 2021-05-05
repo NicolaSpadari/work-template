@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
+import HmrEvent from "./src/plugins/vite-plugin-hmr";
 import { resolve } from "path";
 
 export default defineConfig({
@@ -9,9 +10,8 @@ export default defineConfig({
             "@": resolve(__dirname, "./src"),
             "@js": resolve(__dirname, "./src/assets/js"),
             "@css": resolve(__dirname, "./src/assets/css"),
-            "@images": resolve(__dirname, "./src/assets/images"),
-            "@icons": resolve(__dirname, "./src/assets/icons"),
             "@components": resolve(__dirname, "./src/components"),
+            "@sections": resolve(__dirname, "./src/sections"),
             "@pages": resolve(__dirname, "./src/pages"),
         },
     },
@@ -20,5 +20,6 @@ export default defineConfig({
         Pages({
             extensions: ["vue"],
         }),
+        HmrEvent()
     ],
 });

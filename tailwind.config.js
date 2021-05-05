@@ -11,8 +11,11 @@ const clayBreakpoints = {
 
 module.exports = {
     prefix: "tw-",
+	mode: "jit",
     important: true,
-    purge: false,
+    purge: {
+		content: ["./index.html", "./src/**/*.vue"]
+	},
     dark: false,
     corePlugins: {
         // container: false,
@@ -159,6 +162,11 @@ module.exports = {
         // accessibility: false,
     },
     theme: {
+		extend: {
+            inset: {
+                unset: "unset",
+            }
+		},
         fontFamily: {
             text: `Font1,${clayFonts}`,
             heading: `Font2,${clayFonts}`,
@@ -169,16 +177,6 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             gray: colors.coolGray,
-        },
-        borderRadius: {
-            none: "0",
-            sm: "0.125rem",
-            DEFAULT: "0.25rem",
-            md: "0.375rem",
-            lg: "0.5rem",
-            xl: "1rem",
-            "2xl": "1.5rem",
-            full: "9999px",
         },
         zIndex: {
             0: 0,

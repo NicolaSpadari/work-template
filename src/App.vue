@@ -10,8 +10,8 @@
 
 <script setup>
 	import { onMounted } from "vue";
-	import TheHeader from "@components/TheHeader.vue";
-	import TheFooter from "@components/TheFooter.vue";
+	import TheHeader from "@sections/TheHeader.vue";
+	import TheFooter from "@sections/TheFooter.vue";
 
 	import initLazyLoad from "@js/initLazyLoad.js";
 
@@ -20,13 +20,30 @@
 			initLazyLoad();
 		}, 50);
 	});
+
+	if (import.meta.hot) {
+		import.meta.hot.on("module-update", () => {
+			console.clear();
+
+			setTimeout(() => {
+				initLazyLoad();
+			}, 50);
+		});
+	}
 </script>
 
 <style lang="scss">
 	html {
 		-webkit-tap-highlight-color: transparent;
 	}
-	body {
-		background-color: #f2f2f2;
+	img {
+		-webkit-user-drag: none;
+		user-select: none;
+	}
+	.outline {
+		text-shadow: 0 0 3px black;
+	}
+	.btn {
+		white-space: normal !important;
 	}
 </style>
