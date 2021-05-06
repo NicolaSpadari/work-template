@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
+import ViteComponents from "vite-plugin-components";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
 import { resolve } from "path";
 
@@ -20,6 +21,10 @@ export default defineConfig({
         Pages({
             extensions: ["vue"],
         }),
-        HmrEvent()
+        HmrEvent(),
+        ViteComponents({
+            dirs: ["src/components", "src/sections"],
+            deep: false,
+        }),
     ],
 });

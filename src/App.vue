@@ -10,8 +10,6 @@
 
 <script setup>
 	import { onMounted } from "vue";
-	import TheHeader from "@sections/TheHeader.vue";
-	import TheFooter from "@sections/TheFooter.vue";
 
 	import initLazyLoad from "@js/initLazyLoad.js";
 
