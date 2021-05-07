@@ -1,8 +1,9 @@
-import { createApp } from "vue";
+import { ViteSSG } from "vite-ssg";
+import routes from "virtual:generated-pages";
 import App from "./App.vue";
-import router from "./router.js";
-import "@css/tailwind.css";
+import "virtual:windi-base.css";
+import "virtual:windi-utilities.css";
+import "virtual:windi-devtools";
+import "@css/atlas.css";
 
-const app = createApp(App);
-app.use(router);
-app.mount("#app");
+export const createApp = ViteSSG(App, { routes });

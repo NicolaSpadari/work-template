@@ -1,4 +1,6 @@
-const colors = require("tailwindcss/colors");
+import { defineConfig } from "vite-plugin-windicss";
+import colors from "windicss/colors";
+
 const clayFonts = 'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 const clayBreakpoints = {
     xs: "0px",
@@ -9,14 +11,10 @@ const clayBreakpoints = {
     "2xl": "1536px",
 };
 
-module.exports = {
+export default defineConfig({
     prefix: "tw-",
-	mode: "jit",
     important: true,
-    purge: {
-		content: ["./index.html", "./src/**/*.vue"]
-	},
-    dark: false,
+    darkMode: false,
     corePlugins: {
         // container: false,
         // boxDecorationBreak: false,
@@ -162,11 +160,11 @@ module.exports = {
         // accessibility: false,
     },
     theme: {
-		extend: {
+        extend: {
             inset: {
                 unset: "unset",
-            }
-		},
+            },
+        },
         fontFamily: {
             text: `Font1,${clayFonts}`,
             heading: `Font2,${clayFonts}`,
@@ -194,4 +192,4 @@ module.exports = {
         },
         screens: clayBreakpoints,
     },
-};
+});
