@@ -1,11 +1,13 @@
 <template>
 	<div class="container tw-pt-52">
 		<ul class="tw-list-disc">
-			<li v-for="(page, index) in routes" :key="index">
-				<router-link :to="page.path">
-					{{ page.name }}
-				</router-link>
-			</li>
+			<template v-for="(page, index) in routes">
+				<li v-if="page.name != 'sitemap'" :key="index">
+					<router-link :to="page.path">
+						{{ page.name }}
+					</router-link>
+				</li>
+			</template>
 		</ul>
 	</div>
 </template>

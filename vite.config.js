@@ -3,6 +3,7 @@ import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import ViteComponents from "vite-plugin-components";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
+import FullRestart from "./src/plugins/vite-plugin-restart";
 import WindiCSS from "vite-plugin-windicss";
 import { resolve } from "path";
 
@@ -26,6 +27,7 @@ export default defineConfig({
         }),
         WindiCSS(),
         HmrEvent(),
+        FullRestart("pages"),
         ViteComponents({
             extensions: ["vue"],
             dirs: ["src/components", "src/sections"],
@@ -36,5 +38,11 @@ export default defineConfig({
         entry: "src/main.js",
         script: "async",
         formatting: "prettify",
+        includedRoutes(routes) {
+            return routes.filter((i) => !i.includes("sitemap"));
+        },
+        onPageRendered(route, html) {
+            return html.replaceAll(/<!--[\s\S]*?-->/g, "");
+        },
     },
 });
