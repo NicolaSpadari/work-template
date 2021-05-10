@@ -18,8 +18,10 @@
 
 	onMounted(() => {
 		setTimeout(() => {
-			initLazyLoad();
-		}, 50);
+			if (import.meta.hot) {
+				initLazyLoad();
+			}
+		}, 500);
 	});
 
 	if (import.meta.hot) {
@@ -28,7 +30,7 @@
 
 			setTimeout(() => {
 				initLazyLoad();
-			}, 50);
+			}, 100);
 		});
 
 		router.afterEach(() => {
