@@ -10,8 +10,11 @@
 
 <script setup>
 	import { onMounted } from "vue";
+	import { useRouter } from "vue-router";
 
 	import initLazyLoad from "@js/initLazyLoad.js";
+	
+	const router = useRouter();
 
 	onMounted(() => {
 		setTimeout(() => {
@@ -26,6 +29,14 @@
 			setTimeout(() => {
 				initLazyLoad();
 			}, 50);
+		});
+
+		router.afterEach(() => {
+			window.scrollTo(0, 0);
+
+			setTimeout(() => {
+				initLazyLoad();
+			}, 100);
 		});
 	}
 </script>
