@@ -42,7 +42,11 @@ export default defineConfig({
             return routes.filter((i) => !i.includes("sitemap"));
         },
         onPageRendered(route, html) {
-            return html.replaceAll(/<!--[\s\S]*?-->/g, "");
+            console.log(`Processing ${route}...`);
+            return html
+                .replaceAll(/<!--[\s\S]*?-->/g, "")
+                .replaceAll("/images", "${images_folder}")
+                .replaceAll("/icons", "${icons_folder}");
         },
     },
 });
