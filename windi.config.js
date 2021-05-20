@@ -13,7 +13,7 @@ const clayBreakpoints = {
 
 export default defineConfig({
     prefix: "tw-",
-    important: true,
+    important: false,
     darkMode: false,
     corePlugins: {
         container: false,
@@ -29,6 +29,7 @@ export default defineConfig({
             heading: `Font2,${clayFonts}`,
         },
         colors: {
+            // https://windicss.org/utilities/colors.html#colors
             transparent: "transparent",
             current: "currentColor",
             black: colors.black,
@@ -36,14 +37,6 @@ export default defineConfig({
             gray: colors.coolGray,
         },
         zIndex: {
-            dropdown: 1000,
-            sticky: 1020,
-            fixed: 1030,
-            backdrop: 1040,
-            modal: 1050,
-            popover: 1060,
-            tooltip: 1070,
-            top: 1100,
             5: 5,
             10: 10,
             20: 20,
@@ -55,6 +48,14 @@ export default defineConfig({
             80: 80,
             90: 90,
             100: 100,
+            dropdown: 1000,
+            sticky: 1020,
+            fixed: 1030,
+            backdrop: 1040,
+            modal: 1050,
+            popover: 1060,
+            tooltip: 1070,
+            top: 1100,
         },
         screens: clayBreakpoints,
     },

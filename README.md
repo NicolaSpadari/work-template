@@ -1,34 +1,44 @@
-# `Work project static site generator`
+# <p align="center"> `Work project static site generator`</p>
 
-## CDN use - for static site development and preview - not intended for production
+## <p align="center">For static HTML sites, development and preview</p>
 
+This template is made with:
 
-This template includes:
-
--   [Vite JS 2.x](https://vitejs.dev/)
--   [Vue 3.x](https://v3.vuejs.org/)
--   [Vue Router 4.x](https://next.router.vuejs.org/)
+-   [Vite JS](https://vitejs.dev/)
+-   [Vue](https://v3.vuejs.org/)
+-   [Vue Router](https://next.router.vuejs.org/)
 -   [Vite Plugin Pages](https://github.com/hannoeru/vite-plugin-pages)
--   [Tailwind 2.x](https://tailwindcss.com/docs/installation)
--   [Clay 2.0](https://v2.clayui.com/docs/components/alerts.html)
+-   [Vite Plugin Components](https://github.com/antfu/vite-plugin-components)
+-   [Windi CSS](https://windicss.org/guide)
+-   [Clay CSS](https://v2.clayui.com/docs/components/alerts.html)
 
-Plugins installed usually needed for the projects:
+Libraries installed needed later by the projects:
 
--   [Swiper 6.x](https://swiperjs.com/swiper-api)
--   [Font Awesome 5.x](https://fontawesome.com/)
--   [jQuery 3.4.0](https://jquery.com/)
+-   [Swiper JS](https://swiperjs.com/swiper-api)
+-   [Font Awesome](https://fontawesome.com/)
+-   [jQuery](https://jquery.com/)
 
 ### Getting Started
 
+-   Setup:
+
 ```sh
 npm install -g degit
-npx degit NicolaSpadari/work-template#main my-project
-cd my-project
+npx degit NicolaSpadari/work-template#main <my-project-name>
+cd <my-project-name>
 ```
 
-Setup and run with:
+-   Run:
 
 ```sh
 npm i
 npm run dev
 ```
+
+-   Build:
+
+```sh
+npm run build
+```
+
+The output `dist` folder will contain a list of static html pages server side generated and not initialized (eg. carousels and images lazy load)
