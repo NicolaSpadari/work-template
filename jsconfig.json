@@ -1,6 +1,17 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-  },
-  "exclude": ["node_modules", "dist"]
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"sourceMap": true,
+		"baseUrl": ".",
+		"strict": true,
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
 }
