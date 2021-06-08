@@ -2,18 +2,11 @@ import { defineConfig } from "vite-plugin-windicss";
 import colors from "windicss/colors";
 
 const clayFonts = 'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
-const clayBreakpoints = {
-    xs: "0px",
-    sm: "576px",
-    md: "768px",
-    lg: "992px",
-    xl: "1280px",
-    "2xl": "1536px",
-};
 
 export default defineConfig({
     prefix: "tw-",
-    important: false,
+    attributify: false,
+    important: true,
     darkMode: false,
     corePlugins: {
         container: false,
@@ -57,6 +50,13 @@ export default defineConfig({
             tooltip: 1070,
             top: 1100,
         },
-        screens: clayBreakpoints,
+        screens: {
+            xs: "0px",
+            sm: "576px",
+            md: "768px",
+            lg: "992px",
+            xl: "1280px",
+            "2xl": "1536px",
+        },
     },
 });
