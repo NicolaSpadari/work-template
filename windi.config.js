@@ -3,13 +3,23 @@ import colors from "windicss/colors";
 
 const clayFonts = 'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 
-export default defineConfig({
-    prefix: "tw-",
+const classRange = (size, startAt = 0) => {
+    return Array.from(Array(size).keys()).map((i) => i + startAt);
+};
+
+let windiConfig = defineConfig({
+    prefix: "tw:",
     attributify: false,
     important: true,
     darkMode: false,
+    safelist: [classRange(100).map((i) => `tw:p-${i}`), classRange(100).map((i) => `tw:pt-${i}`), classRange(100).map((i) => `tw:pb-${i}`), classRange(100).map((i) => `tw:pl-${i}`), classRange(100).map((i) => `tw:pr-${i}`), classRange(100).map((i) => `tw:px-${i}`), classRange(100).map((i) => `tw:py-${i}`), classRange(100).map((i) => `tw:m-${i}`), classRange(100).map((i) => `tw:mt-${i}`), classRange(100).map((i) => `tw:mb-${i}`), classRange(100).map((i) => `tw:ml-${i}`), classRange(100).map((i) => `tw:mr-${i}`), classRange(100).map((i) => `tw:mx-${i}`), classRange(100).map((i) => `tw:my-${i}`)],
+    blocklist: ["w-100", "h-100", "mt-5", classRange(6).map((i) => `p-${i}`), classRange(6).map((i) => `pt-${i}`), classRange(6).map((i) => `pb-${i}`), classRange(6).map((i) => `pr-${i}`), classRange(6).map((i) => `pl-${i}`), classRange(6).map((i) => `px-${i}`), classRange(6).map((i) => `py-${i}`), classRange(6).map((i) => `m-${i}`), classRange(6).map((i) => `mt-${i}`), classRange(6).map((i) => `mb-${i}`), classRange(6).map((i) => `mr-${i}`), classRange(6).map((i) => `ml-${i}`), classRange(6).map((i) => `mx-${i}`), classRange(6).map((i) => `my-${i}`)],
     corePlugins: {
         container: false,
+    },
+    extract: {
+        include: ["index.html", "src/**/*.{vue,html,js}"],
+        exclude: ["node_modules", ".gitignore", ".gitattribute", ".eslint", ".eslingignore", "prettierrc", ".prettierignore"],
     },
     theme: {
         extend: {
@@ -60,3 +70,5 @@ export default defineConfig({
         },
     },
 });
+
+export default windiConfig;

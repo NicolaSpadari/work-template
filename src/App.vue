@@ -1,7 +1,7 @@
 <template>
 	<TheHeader />
 
-	<div class="tw-pt-24 xl:tw-pt-36">
+	<div class="tw:pt-24 xl:tw:pt-36">
 		<router-view></router-view>
 	</div>
 
@@ -13,7 +13,7 @@
 	import { useRouter } from "vue-router";
 
 	import initLazyLoad from "@js/initLazyLoad.js";
-	
+
 	const router = useRouter();
 
 	onMounted(() => {
