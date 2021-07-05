@@ -7,7 +7,7 @@ const classRange = (size, startAt = 0) => {
     return Array.from(Array(size).keys()).map((i) => i + startAt);
 };
 
-let windiConfig = defineConfig({
+let windiConfig = {
     prefix: "tw:",
     attributify: false,
     important: true,
@@ -69,6 +69,8 @@ let windiConfig = defineConfig({
             "2xl": "1536px",
         },
     },
-});
+};
 
-export default windiConfig;
+let configuration = defineConfig(windiConfig);
+
+export default configuration;

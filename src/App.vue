@@ -16,10 +16,14 @@
 
 	const router = useRouter();
 
+	function toInit() {
+		initLazyLoad();
+	}
+
 	onMounted(() => {
 		setTimeout(() => {
 			if (import.meta.hot) {
-				initLazyLoad();
+				toInit();
 			}
 		}, 500);
 	});
@@ -29,7 +33,7 @@
 			console.clear();
 
 			setTimeout(() => {
-				initLazyLoad();
+				toInit();
 			}, 100);
 		});
 

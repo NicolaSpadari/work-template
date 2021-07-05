@@ -2,14 +2,13 @@ export default function initLazyLoad() {
     console.log("init lazy load");
 
     if ("loading" in HTMLImageElement.prototype) {
-        document.body.classList.add("native");
+        $("body").addClass("native");
 
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach((img) => {
-            img.src = img.dataset.src;
+        $("img[loading='lazy']").each((i, img) => {
+            $(img).attr("src", $(img).data("src"));
         });
     } else {
-        document.body.classList.add("legacy");
+        $("body").addClass("legacy");
 
         const fallbackScript = document.createElement("script");
         fallbackScript.async = true;
