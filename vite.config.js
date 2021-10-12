@@ -3,7 +3,7 @@ import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import ViteComponents from "vite-plugin-components";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
-import FullRestart from "./src/plugins/vite-plugin-restart";
+import ViteRestart from "./src/plugins/vite-plugin-restart";
 import WindiCSS from "vite-plugin-windicss";
 import { resolve } from "path";
 
@@ -27,7 +27,9 @@ export default defineConfig({
         }),
         WindiCSS(),
         HmrEvent(),
-        FullRestart("pages"),
+        ViteRestart({
+            restart: ["src/pages/*.vue"],
+        }),
         ViteComponents({
             extensions: ["vue"],
             dirs: ["src/components", "src/sections"],
