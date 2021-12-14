@@ -50,15 +50,16 @@
 <style lang="scss">
 	html {
 		-webkit-tap-highlight-color: transparent;
+		scroll-behavior: smooth;
 	}
 	img {
 		-webkit-user-drag: none;
-		user-select: none;
-	}
-	.outline {
-		text-shadow: 0 0 3px black;
+		@apply tw:select-none;
 	}
 	.btn {
-		white-space: normal !important;
+		@apply tw:whitespace-normal;
+		&:focus {
+			@apply tw:ring-0;
+		}
 	}
 </style>

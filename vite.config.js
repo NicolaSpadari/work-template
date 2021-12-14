@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
-import ViteComponents from "vite-plugin-components";
+import Components from "unplugin-vue-components/vite";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
 import ViteRestart from "./src/plugins/vite-plugin-restart";
 import WindiCSS from "vite-plugin-windicss";
@@ -28,9 +28,9 @@ export default defineConfig({
         WindiCSS(),
         HmrEvent(),
         ViteRestart({
-            restart: ["src/pages/*.vue"],
+            restart: ["src/pages/*.vue", "./windi.config.js"],
         }),
-        ViteComponents({
+        Components({
             extensions: ["vue"],
             dirs: ["src/components", "src/sections"],
             deep: false,
@@ -47,8 +47,14 @@ export default defineConfig({
             console.log(`Processing ${route}...`);
             return html
                 .replaceAll(/<!--[\s\S]*?-->/g, "")
-                .replaceAll("/images", "${images_folder}")
-                .replaceAll("/icons", "${icons_folder}");
+                .replaceAll("/images", "${d40.images_folder}")
+                .replaceAll("/icons", "${d40.icons_folder}");
         },
+    },
+    server: {
+        fs: {
+            allow: [".."],
+        },
+        host: true,
     },
 });
