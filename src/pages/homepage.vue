@@ -1,7 +1,7 @@
 <template>
 	<div class="container tw:mt-10">
-		<p>about page</p>
+		<p>homepage</p>
 		<router-link to="/">go to index</router-link>
-		<Block> Blocco about </Block>
+		<Block> Blocco homepage </Block>
 	</div>
 </template>

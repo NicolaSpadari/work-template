@@ -9,9 +9,6 @@
 </template>
 
 <script setup>
-	import { onMounted } from "vue";
-	import { useRouter } from "vue-router";
-
 	import initLazyLoad from "@js/initLazyLoad.js";
 
 	const router = useRouter();

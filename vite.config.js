@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
+import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
 import ViteRestart from "./src/plugins/vite-plugin-restart";
@@ -30,6 +31,10 @@ export default defineConfig({
         ViteRestart({
             restart: ["src/pages/*.vue", "./windi.config.js"],
         }),
+        AutoImport({
+            include: [/\.vue$/, /\.vue\?vue/],
+            imports: ["vue", "vue-router"],
+        }),
         Components({
             extensions: ["vue"],
             dirs: ["src/components", "src/sections"],
@@ -41,7 +46,7 @@ export default defineConfig({
         script: "async",
         formatting: "prettify",
         includedRoutes(routes) {
-            return routes.filter((i) => !i.includes("sitemap"));
+            return routes.filter((i) => !i.includes("index"));
         },
         onPageRendered(route, html) {
             console.log(`Processing ${route}...`);
