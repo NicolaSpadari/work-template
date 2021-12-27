@@ -27,7 +27,6 @@
 			$("body").addClass("reduced");
 		} else {
 			console.log("header is dynamic");
-			initNavbar();
 		}
 	}
 
