@@ -1,4 +1,6 @@
 <template>
+	<SkipLink />
+
 	<TheHeader />
 
 	<div class="tw:pt-24 xl:tw:pt-36">
@@ -74,6 +76,26 @@
 			@apply tw:whitespace-normal;
 			&:focus {
 				@apply tw:ring-0;
+			}
+		}
+	}
+
+	#skip-link {
+		@apply tw:m-0;
+
+		a,
+		a:visited {
+			@apply tw:block tw:w-full tw:pt-[2px] tw:pb-[3px] tw:text-center tw:bg-gray-800 tw:text-white;
+		}
+
+		.element-invisible {
+			@apply tw:fixed tw:overflow-hidden tw:h-[1px] tw:-top-[10000px] tw:-z-1;
+
+			&.element-focusable {
+				&:active,
+				&:focus {
+					@apply tw:fixed tw:overflow-visible tw:h-auto tw:z-99999 tw:top-0;
+				}
 			}
 		}
 	}
