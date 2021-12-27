@@ -1,3 +1,11 @@
+<route>
+{
+    meta: {
+        fixedheader: false
+    }
+}
+</route>
+
 <template>
 	<div class="container tw:mt-10">
 		<p>homepage</p>

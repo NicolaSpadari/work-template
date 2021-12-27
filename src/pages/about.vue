@@ -1,3 +1,11 @@
+<route>
+{
+    meta: {
+        fixedheader: true
+    }
+}
+</route>
+
 <template>
 	<div class="container tw:mt-10">
 		<p>about page</p>

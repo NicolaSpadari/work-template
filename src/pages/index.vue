@@ -1,6 +1,14 @@
+<route>
+{
+    meta: {
+        fixedheader: false
+    }
+}
+</route>
+
 <template>
 	<div class="container tw:pt-10">
-		<p class="tw:(text-dark text-xl mb-5)">Pagine del sito:</p>
+		<p class="tw:(text-dark text-xl mb-5)">Pagine del Sito:</p>
 		<ul class="tw:list-disc">
 			<li v-for="page in routes" :key="page.name">
 				<router-link :to="page.path">

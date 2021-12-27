@@ -13,8 +13,20 @@
 
 	const router = useRouter();
 
+	const fixedHeader = computed(() => {
+		return router.currentRoute.value.meta.fixedheader;
+	});
+
 	function toInit() {
 		initLazyLoad();
+
+		if (fixedHeader.value) {
+			console.log("header is fixed");
+			$("body").addClass("reduced");
+		} else {
+			console.log("header is dynamic");
+			initNavbar();
+		}
 	}
 
 	onMounted(() => {
@@ -49,14 +61,20 @@
 		-webkit-tap-highlight-color: transparent;
 		scroll-behavior: smooth;
 	}
+	body {
+		@apply tw:font-text tw:overflow-x-hidden;
+	}
 	img {
 		-webkit-user-drag: none;
 		@apply tw:select-none;
 	}
-	.btn {
-		@apply tw:whitespace-normal;
-		&:focus {
-			@apply tw:ring-0;
+
+	#body-content {
+		.btn {
+			@apply tw:whitespace-normal;
+			&:focus {
+				@apply tw:ring-0;
+			}
 		}
 	}
 </style>

@@ -1,27 +1,59 @@
 {
-    "name": "work-template",
-    "version": "2.0.0",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite-ssg build",
-        "bump:patch": "npm version patch --no-git-tag-version && npm run build",
-        "bump:minor": "npm version minor --no-git-tag-version && npm run build",
-        "bump:major": "npm version major --no-git-tag-version && npm run build"
-    },
-    "dependencies": {
-        "vue": "^3.2.26",
-        "vue-router": "^4.0.12"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-vue": "^2.0.1",
-        "@vue/compiler-sfc": "^3.2.26",
-        "@vue/server-renderer": "^3.2.26",
-        "sass": "^1.45.1",
-        "unplugin-auto-import": "^0.5.4",
-        "unplugin-vue-components": "^0.17.9",
-        "vite": "^2.7.6",
-        "vite-plugin-pages": "^0.19.6",
-        "vite-plugin-windicss": "^1.6.1",
-        "vite-ssg": "^0.17.2"
-    }
+	"name": "work-template",
+	"version": "2.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite-ssg build",
+		"bump:patch": "npm version patch --no-git-tag-version && npm run build",
+		"bump:minor": "npm version minor --no-git-tag-version && npm run build",
+		"bump:major": "npm version major --no-git-tag-version && npm run build"
+	},
+	"dependencies": {
+		"vue": "^3.2.26",
+		"vue-router": "^4.0.12"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^2.0.1",
+		"@vue/compiler-sfc": "^3.2.26",
+		"@vue/server-renderer": "^3.2.26",
+		"sass": "^1.45.1",
+		"unplugin-auto-import": "^0.5.4",
+		"unplugin-vue-components": "^0.17.9",
+		"vite": "^2.7.6",
+		"vite-plugin-pages": "^0.19.6",
+		"vite-plugin-windicss": "^1.6.1",
+		"vite-ssg": "^0.17.2"
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"es6": true,
+			"amd": true,
+			"node": true,
+			"jquery": true
+		},
+		"extends": "eslint:recommended",
+		"parserOptions": {
+			"ecmaVersion": 12,
+			"sourceType": "module"
+		},
+		"rules": {
+			"prefer-const": 0,
+			"no-unused-vars": "warn"
+		},
+		"ignorePatterns": [
+			"dist",
+			"node_modules",
+			"public"
+		]
+	},
+	"prettier": {
+		"printWidth": 200,
+		"tabWidth": 4,
+		"semi:": true,
+		"endOfLine": "auto",
+		"trailingComma": "none",
+		"useTabs": true,
+		"vueIndentScriptAndStyle": true
+	}
 }
