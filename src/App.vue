@@ -3,6 +3,8 @@
 
 	<TheHeader />
 
+	<D40Sidebar />
+
 	<div class="tw:pt-24 xl:tw:pt-36">
 		<router-view></router-view>
 	</div>
@@ -12,6 +14,7 @@
 
 <script setup>
 	import initLazyLoad from "@js/initLazyLoad.js";
+	import initD40Sidebar from "@js/initD40Sidebar.js";
 
 	const router = useRouter();
 
@@ -28,6 +31,8 @@
 		} else {
 			console.log("header is dynamic");
 		}
+
+		initD40Sidebar();
 	}
 
 	onMounted(() => {
