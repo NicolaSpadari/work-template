@@ -6,7 +6,7 @@
 	<D40Sidebar />
 
 	<div class="tw:pt-24 xl:tw:pt-36">
-		<router-view></router-view>
+		<router-view />
 	</div>
 
 	<TheFooter />
@@ -15,6 +15,8 @@
 <script setup>
 	import initLazyLoad from "@js/initLazyLoad.js";
 	import initD40Sidebar from "@js/initD40Sidebar.js";
+	import { computed, onMounted } from "vue";
+	import { useRouter } from "@/router";
 
 	const router = useRouter();
 
@@ -37,9 +39,7 @@
 
 	onMounted(() => {
 		setTimeout(() => {
-			if (import.meta.hot) {
-				toInit();
-			}
+			if (import.meta.hot) toInit();
 		}, 500);
 	});
 

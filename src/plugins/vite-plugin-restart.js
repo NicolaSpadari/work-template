@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import micromatch from "micromatch";
 
-const touch = (path) => {
+const touch = path => {
     const time = new Date();
 
     try {
@@ -12,7 +12,7 @@ const touch = (path) => {
     }
 };
 
-const toArray = (arr) => {
+const toArray = arr => {
     if (!arr) return [];
     if (Array.isArray(arr)) return arr;
     return [arr];
@@ -39,18 +39,18 @@ export default function FullRestart(options = {}) {
         configResolved(config) {
             root = config.root;
 
-            reloadGlobs = toArray(options.reload).map((i) => pathPlatform.resolve(root, i));
-            restartGlobs = toArray(options.restart).map((i) => pathPlatform.resolve(root, i));
+            reloadGlobs = toArray(options.reload).map(i => pathPlatform.resolve(root, i));
+            restartGlobs = toArray(options.restart).map(i => pathPlatform.resolve(root, i));
         },
         configureServer(server) {
             server.watcher.add([...restartGlobs, ...reloadGlobs]);
-            server.watcher.on("add", (file) => {
+            server.watcher.on("add", file => {
                 if (micromatch.isMatch(file, reloadGlobs)) {
                     touch(configFile);
                     server.ws.send({ type: "full-reload" });
                 }
             });
-            server.watcher.on("unlink", (file) => {
+            server.watcher.on("unlink", file => {
                 if (micromatch.isMatch(file, restartGlobs)) {
                     touch(configFile);
                     server.ws.send({ type: "full-reload" });

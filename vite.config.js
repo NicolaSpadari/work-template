@@ -1,12 +1,12 @@
+import { resolve } from "path";
 import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import WindiCSS from "vite-plugin-windicss";
 import HmrEvent from "./src/plugins/vite-plugin-hmr";
 import ViteRestart from "./src/plugins/vite-plugin-restart";
-import WindiCSS from "vite-plugin-windicss";
-import { resolve } from "path";
 
 export default defineConfig({
     resolve: {
@@ -46,7 +46,7 @@ export default defineConfig({
         script: "async",
         formatting: "prettify",
         includedRoutes(routes) {
-            return routes.filter((i) => !i.includes("index"));
+            return routes.filter(i => !i.includes("index"));
         },
         onPageRendered(route, html) {
             console.log(`Processing ${route}...`);
