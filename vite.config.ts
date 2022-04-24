@@ -5,61 +5,60 @@ import Pages from "vite-plugin-pages";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import WindiCSS from "vite-plugin-windicss";
-import HmrEvent from "./src/plugins/vite-plugin-hmr";
-import ViteRestart from "./src/plugins/vite-plugin-restart";
+
+import type { Resolver } from "unplugin-auto-import/types";
+
+const initResolver: Resolver = (name: string): string | void => {
+	if (name.startsWith("init")) {
+        return `@/inits/${name}`;
+    }
+};
 
 export default defineConfig({
     resolve: {
         alias: {
-            "@": resolve(__dirname, "./src"),
-            "@js": resolve(__dirname, "./src/assets/js"),
-            "@css": resolve(__dirname, "./src/assets/css"),
-            "@components": resolve(__dirname, "./src/components"),
-            "@sections": resolve(__dirname, "./src/sections"),
-            "@pages": resolve(__dirname, "./src/pages"),
-        },
+            "@": resolve(__dirname, "./src")
+        }
     },
     plugins: [
         Vue({
-            include: [/\.vue$/],
+            include: [/\.vue$/]
         }),
         Pages({
-            extensions: ["vue"],
+            extensions: ["vue"]
         }),
         WindiCSS(),
-        HmrEvent(),
-        ViteRestart({
-            restart: ["src/pages/*.vue", "./windi.config.js"],
-        }),
         AutoImport({
             include: [/\.vue$/, /\.vue\?vue/],
             imports: ["vue", "vue-router"],
+            resolvers: [initResolver]
         }),
         Components({
+            include: [/\.vue$/, /\.vue\?vue/],
             extensions: ["vue"],
             dirs: ["src/components", "src/sections"],
-            deep: false,
-        }),
+            deep: false
+        })
     ],
     ssgOptions: {
-        entry: "src/main.js",
         script: "async",
         formatting: "prettify",
         includedRoutes(routes) {
-            return routes.filter(i => !i.includes("index"));
+            return routes.filter(route => !route.includes("index"));
         },
         onPageRendered(route, html) {
             console.log(`Processing ${route}...`);
             return html
                 .replaceAll(/<!--[\s\S]*?-->/g, "")
-                .replaceAll("/images", "${d40.images_folder}")
-                .replaceAll("/icons", "${d40.icons_folder}");
-        },
+                .replaceAll("/images", "${images_folder}")
+                .replaceAll("/icons", "${icons_folder}")
+                .replaceAll("img src", "img data-src");
+        }
     },
     server: {
         fs: {
-            allow: [".."],
+            allow: [".."]
         },
-        host: true,
-    },
+        host: true
+    }
 });

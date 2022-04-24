@@ -24,7 +24,7 @@ Libraries installed needed later by the projects:
 
 ```sh
 npm install -g degit
-npx degit NicolaSpadari/work-template#main <my-project-name>
+npx degit NicolaSpadari/work-template <my-project-name>
 cd <my-project-name>
 ```
 
@@ -41,4 +41,4 @@ npm run dev
 npm run build
 ```
 
-The output `dist` folder will contain a list of static html pages server side generated and not initialized (eg. carousels and images lazy load)
+The output `dist` folder will contain a list of static html generated pages and not initialized (eg. carousels and image lazy load)

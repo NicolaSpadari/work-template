@@ -5,5 +5,12 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
 	},
-	"eslint.validate": ["javascript", "vue", "html", "json"]
+	"eslint.validate": ["javascript", "typescript", "vue", "html", "json"],
+    "explorer.experimental.fileNesting.enabled": true,
+    "explorer.experimental.fileNesting.expand": false,
+    "explorer.experimental.fileNesting.patterns": {
+        "package.json": "package*",
+        "readme.md": "*.md",
+        ".gitignore": ".git*, .eslint*",
+    }
 }

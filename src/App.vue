@@ -5,61 +5,30 @@
 
 	<D40Sidebar />
 
-	<div class="tw:pt-24 xl:tw:pt-36">
-		<router-view />
-	</div>
+	<router-view />
 
 	<TheFooter />
 </template>
 
-<script setup>
-	import initLazyLoad from "@js/initLazyLoad.js";
-	import initD40Sidebar from "@js/initD40Sidebar.js";
-	import { computed, onMounted } from "vue";
-	import { useRouter } from "@/router";
-
+<script lang="ts" setup>
 	const router = useRouter();
+	const route = useRoute();
 
-	const fixedHeader = computed(() => {
-		return router.currentRoute.value.meta.fixedheader;
-	});
-
-	function toInit() {
-		initLazyLoad();
-
-		if (fixedHeader.value) {
+	const toInit = () => {
+		if (route.meta.fixedHeader) {
 			console.log("header is fixed");
 			$("body").addClass("reduced");
 		} else {
+			$("body").removeClass("reduced");
 			console.log("header is dynamic");
+			initNavbar();
 		}
 
 		initD40Sidebar();
-	}
+	};
 
-	onMounted(() => {
-		setTimeout(() => {
-			if (import.meta.hot) toInit();
-		}, 500);
-	});
-
-	if (import.meta.hot) {
-		import.meta.hot.on("module-update", () => {
-			console.clear();
-
-			setTimeout(() => {
-				toInit();
-			}, 100);
-		});
-
-		router.afterEach(() => {
-			window.scrollTo(0, 0);
-
-			setTimeout(() => {
-				initLazyLoad();
-			}, 100);
-		});
-	}
+	onMounted(() => nextTick(() => import.meta.hot ? toInit() : ""));
+	router.afterEach(() => nextTick(() => import.meta.hot ? toInit() : ""));
 </script>
 
 <style lang="scss">
@@ -78,6 +47,7 @@
 	#body-content {
 		.btn {
 			@apply tw:whitespace-normal;
+
 			&:focus {
 				@apply tw:ring-0;
 			}

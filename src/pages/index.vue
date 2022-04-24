@@ -9,7 +9,7 @@
 <template>
 	<div class="container tw:pt-10">
 		<p class="tw:(text-dark text-xl mb-5)">
-			Pagine del Sito:
+			Pagine del sito:
 		</p>
 		<ul class="tw:list-disc">
 			<li v-for="page in routes" :key="page.name">
