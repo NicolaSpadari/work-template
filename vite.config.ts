@@ -4,7 +4,7 @@ import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
-import WindiCSS from "vite-plugin-windicss";
+import UnoCSS from "unocss/vite";
 
 import type { Resolver } from "unplugin-auto-import/types";
 
@@ -27,7 +27,7 @@ export default defineConfig({
         Pages({
             extensions: ["vue"]
         }),
-        WindiCSS(),
+        UnoCSS(),
         AutoImport({
             include: [/\.vue$/, /\.vue\?vue/],
             imports: ["vue", "vue-router"],
@@ -44,14 +44,14 @@ export default defineConfig({
         script: "async",
         formatting: "prettify",
         includedRoutes(routes) {
-            return routes.filter(route => !route.includes("index"));
+            return routes.filter((route) => !route.includes("index"));
         },
         onPageRendered(route, html) {
             console.log(`Processing ${route}...`);
             return html
                 .replaceAll(/<!--[\s\S]*?-->/g, "")
-                .replaceAll("/images", "${images_folder}")
-                .replaceAll("/icons", "${icons_folder}")
+                .replaceAll("/images", "${d40.images_folder}")
+                .replaceAll("/icons", "${d40.icons_folder}")
                 .replaceAll("img src", "img data-src");
         }
     },

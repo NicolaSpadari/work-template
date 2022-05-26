@@ -1,3 +1,9 @@
 {
-    "recommendations": ["johnsoncodehk.volar", "dbaeumer.vscode-eslint", "voorjaar.windicss-intellisense"]
-}
+    "recommendations": [
+      "vue.volar",
+      "dbaeumer.vscode-eslint",
+      "antfu.unocss",
+      "antfu.file-nesting"
+    ]
+  }
+  

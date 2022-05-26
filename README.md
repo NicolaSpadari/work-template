@@ -1,6 +1,6 @@
-# <p align="center"> `Work project static site generator`</p>
+# <p align="center">`Work projects static site generator`</p>
 
-## <p align="center">For static HTML sites, development and preview</p>
+## <p align="center">For development and html generation</p>
 
 This template is made with:
 
@@ -9,12 +9,12 @@ This template is made with:
 -   [Vue Router](https://next.router.vuejs.org/)
 -   [Vite Plugin Pages](https://github.com/hannoeru/vite-plugin-pages)
 -   [Vite Plugin Components](https://github.com/antfu/vite-plugin-components)
--   [Windi CSS](https://windicss.org/guide)
--   [Clay CSS](https://v2.clayui.com/docs/components/alerts.html)
+-   [UnoCSS](https://github.com/unocss/unocss)
+-   [Clay](https://v2.clayui.com/docs/components/alerts.html)
 
-Libraries installed needed later by the projects:
+Libraries needed under the hood:
 
--   [Swiper JS](https://swiperjs.com/swiper-api)
+-   [Swiper JS](https://swiperjs.com/swiper-api) - optional
 -   [Font Awesome](https://fontawesome.com/)
 -   [jQuery](https://jquery.com/)
 
