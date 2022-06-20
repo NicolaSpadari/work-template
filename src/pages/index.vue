@@ -12,6 +12,11 @@
             Pagine del sito:
         </p>
         <ul list-disc>
+            <li>
+                <a href="/__unocss">
+                    Uno generated css
+                </a>
+            </li>
             <li v-for="page in routes" :key="page.name">
                 <router-link :to="page.path">
                     {{ page.name }}

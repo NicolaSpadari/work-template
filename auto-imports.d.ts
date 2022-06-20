@@ -14,6 +14,8 @@ declare global {
   const initD40Sidebar: typeof import('@/inits/initD40Sidebar')['default']
   const initNavbar: typeof import('@/inits/initNavbar')['default']
   const inject: typeof import('vue')['inject']
+  const isProxy: typeof import('vue')['isProxy']
+  const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const markRaw: typeof import('vue')['markRaw']
@@ -52,4 +54,6 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
+  const watchPostEffect: typeof import('vue')['watchPostEffect']
+  const watchSyncEffect: typeof import('vue')['watchSyncEffect']
 }

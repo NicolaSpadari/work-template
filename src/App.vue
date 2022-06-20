@@ -32,47 +32,47 @@
 </script>
 
 <style lang="scss">
-	html {
-		-webkit-tap-highlight-color: transparent;
-		scroll-behavior: smooth;
-	}
-	body {
-		@apply font-text overflow-x-hidden;
-	}
-	img {
-		-webkit-user-drag: none;
-		@apply select-none;
-	}
+    html {
+        -webkit-tap-highlight-color: transparent;
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply font-text overflow-x-hidden;
+    }
+    img {
+        -webkit-user-drag: none;
+        @apply select-none;
+    }
 
-	#body-content {
-		.btn {
-			@apply whitespace-normal;
+    #body-content {
+        .btn {
+            @apply whitespace-normal;
 
-			&:focus {
-				@apply ring-0;
-			}
-		}
-	}
+            &:focus {
+                @apply ring-0;
+            }
+        }
+    }
 
-	#skip-link {
-		@apply m-0;
+    #skip-link {
+        @apply m-0;
 
-		a,
-		a:visited {
-			@apply block w-full pt-[2px] pb-[3px] text-center bg-gray-800 text-white;
-		}
+        a,
+        a:visited {
+            @apply block w-full pt-[2px] pb-[3px] text-center bg-gray-800 text-white;
+        }
 
-		.element-invisible {
-			@apply fixed overflow-hidden h-[1px] -top-[10000px] -z-1;
+        .element-invisible {
+            @apply fixed overflow-hidden h-[1px] -top-[10000px] -z-1;
 
-			&.element-focusable {
-				&:active,
-				&:focus {
-					@apply fixed overflow-visible h-auto z-99999 top-0;
-				}
-			}
-		}
-	}
+            &.element-focusable {
+                &:active,
+                &:focus {
+                    @apply fixed overflow-visible h-auto z-99999 top-0;
+                }
+            }
+        }
+    }
 
     #d40-sidebar{
         &:not(.visible){

@@ -10,7 +10,7 @@ import {
 } from "unocss";
 
 const classRange = (size: number, startAt = 0) => {
-	return Array.from(Array(size).keys()).map((i) => i + startAt);
+    return Array.from(Array(size).keys()).map((i) => i + startAt);
 };
 
 const generateRules = (variants: string[], num: number) => {
@@ -63,9 +63,10 @@ export default defineConfig({
         transformerDirectives(),
         transformerVariantGroup()
     ],
-    preprocess: (utility) => {
-        if (utility.includes("!"))
-return utility;
+    preprocess: (utility: string) => {
+        if (utility.includes("!")) {
+            return utility;
+        }
         return `!${utility}`;
     },
     safelist: generateRules([
@@ -73,7 +74,7 @@ return utility;
     ], 50),
     blocklist: [
         "w-100",
-		"h-100",
+        "h-100",
         "container",
         ...generateRules([
             "p", "px", "py", "pl", "pr", "pt", "pb", "m", "mt", "mb", "ml", "mr", "mx", "my"
